@@ -1,0 +1,122 @@
+// These arguments were used when this file was generated. They will be automatically applied on subsequent loads 
+// via the GUI or CLI invocations. Run CLI with '--help' for additional information on how to override these arguments.
+// @cliArgs --board "/ti/boards/MSP_EXP432P401R" --product "simplelink_msp432p4_sdk@3.40.01.02"
+// @versions {"data":"2019083011","timestamp":"2019083011","tool":"1.2.952","templates":"2019083011"}
+
+var RTOS = scripting.addModule("/ti/drivers/RTOS");
+var GPIO = scripting.addModule("/ti/drivers/GPIO");
+var Power = scripting.addModule("/ti/drivers/Power");
+var Board = scripting.addModule("/ti/drivers/Board");
+var DriverLib = scripting.addModule("/ti/devices/DriverLib");
+var GPIO1 = GPIO.addInstance();
+var UART = scripting.addModule("/ti/drivers/UART");
+var UART1 = UART.addInstance();
+var PWM = scripting.addModule("/ti/drivers/PWM");
+var PWM1 = PWM.addInstance();
+var PWM2 = PWM.addInstance();
+var Timer = scripting.addModule("/ti/drivers/Timer");
+var Timer1 = Timer.addInstance();
+var GPIO2 = GPIO.addInstance();
+var GPIO3 = GPIO.addInstance();
+var GPIO4 = GPIO.addInstance();
+var ADC = scripting.addModule("/ti/drivers/ADC");
+var ADC1 = ADC.addInstance();
+var Timer2 = Timer.addInstance();
+// name - Select the RTOS being used
+RTOS.name = "FreeRTOS";
+// Name
+Power.performanceLevel3.$name = "ti_drivers_power_PowerMSP432PerfLevels0";
+// Name
+Power.performanceLevel2.$name = "ti_drivers_power_PowerMSP432PerfLevels1";
+// Name
+Power.performanceLevel1.$name = "ti_drivers_power_PowerMSP432PerfLevels2";
+// Name
+Power.performanceLevel0.$name = "ti_drivers_power_PowerMSP432PerfLevels3";
+// Use Hardware - Select the hardware to use, or 'None' to use available header pins
+GPIO1.$hardware = system.deviceData.board.components.LED1_RED;
+// Name - The C/C++ identifier used in applications as the index parameter passed to GPIO runtime APIs
+GPIO1.$name = "CONFIG_GPIO_LED_0";
+// Name - The C/C++ identifier used in applications as the index parameter passed to UART runtime APIs
+UART1.$name = "CONFIG_UART_0";
+// Use Hardware - Select the hardware to use, or 'None' to use available header pins
+UART1.$hardware = system.deviceData.board.components.XDS110UART;
+// Interrupt Priority - UART peripheral interrupt priority
+UART1.interruptPriority = "1";
+// Name
+UART1.uart.$name = "MyUART1";
+// Use Peripheral
+UART1.uart.$assign = "EUSCI_A0";
+// Name - The C/C++ identifier used in applications as the index parameter passed to PWM runtime APIs
+PWM1.$name = "CONFIG_PWM_0";
+// Name
+PWM1.timer.$name = "MyTIMER_A1";
+// Assign pin
+PWM1.timer.pwmPin.$assign = "boosterpack.39"; // P2.6
+// Name - The C/C++ identifier used in applications as the index parameter passed to PWM runtime APIs
+PWM2.$name = "CONFIG_PWM_1";
+// Name
+PWM2.timer.$name = "MyTIMER_A1";
+// Assign pin
+PWM2.timer.pwmPin.$assign = "boosterpack.40"; // P2.7
+// Name - The C/C++ identifier used in applications as the index parameter passed to Timer runtime APIs
+Timer1.$name = "CONFIG_TIMER_0";
+// Interrupt Priority - Timer Interrupt Priority
+Timer1.interruptPriority = "1";
+// Timer Type
+Timer1.timerType = "32 Bits";
+// Name
+Timer1.timer.$name = "MyTIMER321";
+// Use Peripheral
+Timer1.timer.$assign = "TIMER32_0";
+// Pull - Specifies the internal pull-up or pull-down resistor configuration of this GPIO pin.
+GPIO2.pull = "Pull Up";
+// Interrupt Trigger - Specifies when or if interrupts are triggered
+GPIO2.interruptTrigger = "Falling Edge";
+// Callback Function - The name of the callback function called when this GPIO pin triggers an interrupt, or 'NULL' if it's specified at runtime
+GPIO2.callbackFunction = "rotIncrement";
+// Name - The C/C++ identifier used in applications as the index parameter passed to GPIO runtime APIs
+GPIO2.$name = "CONFIG_GPIO_RPM";
+// Assign pin
+GPIO2.gpioPin.$assign = "boosterpack.32"; // P3.5
+// Name - The C/C++ identifier used in applications as the index parameter passed to GPIO runtime APIs
+GPIO3.$name = "CONFIG_GPIO_POSITION";
+// Interrupt Trigger - Specifies when or if interrupts are triggered
+GPIO3.interruptTrigger = "Falling Edge";
+// Pull - Specifies the internal pull-up or pull-down resistor configuration of this GPIO pin.
+GPIO3.pull = "Pull Up";
+// Assign pin
+GPIO3.gpioPin.$assign = "boosterpack.13"; // P5.0
+// Name - The C/C++ identifier used in applications as the index parameter passed to GPIO runtime APIs
+GPIO4.$name = "CONFIG_GPIO_0";
+// Mode - Select the GPIO mode
+GPIO4.mode = "Output";
+// Assign pin
+GPIO4.gpioPin.$assign = "boosterpack.7"; // P1.5
+// Name - The C/C++ identifier used in applications as the index parameter passed to ADC runtime APIs
+ADC1.$name = "CONFIG_ADC_POT";
+// Reference Voltage - Specifies the ADC's reference voltage source.
+ADC1.referenceVoltage = "2.5V";
+// Name
+ADC1.adc.$name = "MyADC141";
+// Use Peripheral
+ADC1.adc.$assign = "ADC14";
+// Assign pin
+ADC1.adc.adcPin.$assign = "boosterpack.26"; // P4.4
+// Name - The C/C++ identifier used in applications as the index parameter passed to Timer runtime APIs
+Timer2.$name = "CONFIG_TIMER_1";
+// Timer Type
+Timer2.timerType = "32 Bits";
+// Name
+Timer2.timer.$name = "MyTIMER321";
+// Suggest solution
+GPIO1.gpioPin.$suggestSolution = "4";
+// Suggest solution
+UART1.uart.txPin.$suggestSolution = "7";
+// Suggest solution
+UART1.uart.rxPin.$suggestSolution = "6";
+// Suggest solution
+PWM1.timer.$suggestSolution = "Timer_A0";
+// Suggest solution
+PWM2.timer.$suggestSolution = "Timer_A0";
+// Suggest solution
+Timer2.timer.$suggestSolution = "TIMER32_1";
